@@ -1,0 +1,75 @@
+<h2>Gestion des Livres</h2>
+
+<!-- BARRE DE RECHERCHE -->
+<div class="serch">
+  <input
+    type="text"
+    placeholder=" Rechercher par titre, auteur ou catégorie"
+    [(ngModel)]="search"
+    (input)="filtrer()"
+  >
+  <button (click)="show = !show">Add new livre</button>
+</div>
+
+<!-- FORMULAIRE -->
+<div class="card" *ngIf="show">
+  <h3>Ajouter un livre</h3>
+
+  <input type="text" placeholder="Titre" [(ngModel)]="newLivre.titre">
+  <input type="text" placeholder="Auteur" [(ngModel)]="newLivre.auteur">
+  <input type="text" placeholder="Catégorie" [(ngModel)]="newLivre.categorie">
+    <input
+    type="text"
+    placeholder="URL de l'image du livre"
+    [(ngModel)]="newLivre.image"
+  >
+   <img
+    *ngIf="newLivre.image"
+    [src]="newLivre.image"
+    class="preview"
+  >
+
+  <button (click)="add()">Ajouter</button>
+</div>
+
+<!-- LISTE DES LIVRES -->
+<div class="livres-container" *ngIf="livresFiltres.length > 0">
+
+  <div class="livre-card" *ngFor="let l of livresFiltres">
+     <img [src]="l.image" class="livre-img">
+
+
+    <div class="ligne">
+      <span class="label">ID</span>
+      <span>{{ l.id }}</span>
+    </div>
+
+    <div class="ligne">
+      <span class="label">Titre</span>
+      <span>{{ l.titre }}</span>
+    </div>
+
+    <div class="ligne">
+      <span class="label">Auteur</span>
+      <span>{{ l.auteur }}</span>
+    </div>
+
+    <div class="ligne">
+      <span class="label">Catégorie</span>
+      <span>{{ l.categorie }}</span>
+    </div>
+
+    <div class="ligne">
+      <span class="label">Disponible</span>
+      <span>{{ l.disponible ? '✔️' : '❌' }}</span>
+    </div>
+
+    <button class="delete-btn" (click)="delete(l.id)">Supprimer</button>
+
+  </div>
+
+</div>
+
+<p *ngIf="livresFiltres.length === 0" class="empty">
+  Aucun livre disponible
+</p>

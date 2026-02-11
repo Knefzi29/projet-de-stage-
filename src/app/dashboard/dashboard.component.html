@@ -1,0 +1,56 @@
+<div class="dashboard">
+
+  <h1>Dashboard – Bibliothèque</h1>
+  <p class="subtitle">Vue générale du système</p>
+
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h2>{{ totalLivres }}</h2>
+      <p>Total Livres</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ livresDisponibles }}</h2>
+      <p>Livres disponibles</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ totalLecteurs }}</h2>
+      <p>Lecteurs</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ totalEmprunts }}</h2>
+      <p>Emprunts</p>
+    </div>
+
+  </div>
+
+  <!-- les lien pour les autre page -->
+  <h2>Accès rapide</h2>
+
+  <div class="nav-grid">
+
+    <div class="nav-card" routerLink="/livres">
+      📘
+      <h3>Livres</h3>
+      <p>Gestion des livres</p>
+    </div>
+
+    <div class="nav-card" routerLink="/lecteurs">
+      👤
+      <h3>Lecteurs</h3>
+      <p>Gestion des lecteurs</p>
+    </div>
+
+    <div class="nav-card" routerLink="/emprunts">
+      🔁
+      <h3>Emprunts</h3>
+      <p>Suivi des emprunts</p>
+    </div>
+
+  </div>
+
+</div>

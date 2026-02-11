@@ -1,0 +1,43 @@
+<h2>Gestion des Lecteurs</h2>
+ <div class="serch">
+    <input type="text" placeholder=" Rechercher par nom, phone...." [(ngModel)]="search">
+    
+    <button (click)="show = !show">Add new Lecteur</button>
+  </div>
+<div class="card" *ngIf="show">
+  <h3>Ajouter un lecteur</h3>
+
+  <input type="text" placeholder="Nom" [(ngModel)]="newLecteur.nom">
+  <input type="email" placeholder="Email" [(ngModel)]="newLecteur.email">
+  <input type="tel" placeholder="Phone" [(ngModel)]="newLecteur.phone">
+
+
+  <button (click)="add()">Ajouter</button>
+</div>
+
+<div class="lecteurs-container" *ngIf="lecteurs.length > 0">
+
+  <div class="lecteur-card" *ngFor="let l of lecteurs">
+    <div class="info">
+      <strong>ID :</strong> {{ l.id }}
+    </div>
+
+    <div class="info">
+      <strong>Nom :</strong> {{ l.nom }}
+    </div>
+
+    <div class="info">
+      <strong>Email :</strong> {{ l.email }}
+    </div>
+    <div class="info">
+      <strong>Phone :</strong> {{ l.phone }}
+    </div>
+
+    <button class="delete-btn" (click)="del(l.id)">Supprimer</button>
+  </div>
+
+</div>
+
+<p *ngIf="lecteurs.length === 0" class="empty">
+  Aucun lecteur enregistré
+</p>

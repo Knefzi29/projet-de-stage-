@@ -1,0 +1,138 @@
+
+h2 {
+ font-family: Arial, Helvetica, sans-serif;
+   max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* formulaire */
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Ligne formulaire */
+.form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Select */
+select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Bouton */
+button {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* Liste emprunts */
+.emprunts-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Carte emprunt */
+.emprunt-card {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  border-left: 5px solid #2563eb;
+}
+
+.emprunt-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Ligne info */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* Texte */
+.row strong {
+  color: #334155;
+}
+
+/* Message vide */
+.empty {
+  text-align: center;
+  margin-top: 30px;
+  font-style: italic;
+  color: #64748b;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-delete {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-delete:hover {
+  background: #b91c1c;
+}
+
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

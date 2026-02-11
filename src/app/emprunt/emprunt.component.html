@@ -1,0 +1,73 @@
+
+<h2>Gestion des Emprunts</h2>
+
+
+<div class="card">
+  <h3>Nouvel emprunt</h3>
+<div>
+  <select [(ngModel)]="newEmprunt.livreId">
+  <option [ngValue]="null">📘 Choisir un livre</option>
+  <option *ngFor="let l of livres" [ngValue]="l.id">
+    {{ l.titre }}
+  </option>
+</select>
+
+<select [(ngModel)]="newEmprunt.lecteurId">
+  <option [ngValue]="null">👤 Choisir un lecteur</option>
+  <option *ngFor="let lec of lecteurs" [ngValue]="lec.id">
+    {{ lec.nom }}
+  </option>
+</select>
+
+    <button (click)="ajouter()">Emprunter</button>
+  </div>
+</div>
+
+
+<div class="emprunts-container">
+
+  <div class="emprunt-card" *ngFor="let e of emprunts">
+    <div class="row">
+      <strong>Livre :</strong>
+      <span>{{ getLivre(e.livreId)?.titre }}</span>
+    </div>
+
+    <div class="row">
+      <strong>Lecteur :</strong>
+      <span>{{ getLecteur(e.lecteurId)?.nom }}</span>
+    </div>
+
+    <div class="row">
+      <strong>Date :</strong>
+      <span>{{ e.dateEmprunt | date:'dd/MM/yyyy' }}</span>
+    </div>
+    <div class="row">
+  <span class="badge"
+        [ngClass]="{
+          'en-cours': !isRetourne(e) && !isExpire(e),
+          'retourne': isRetourne(e),
+          'expire': isExpire(e)
+        }">
+    {{ isRetourne(e) ? 'Retourné' : (isExpire(e) ? 'Expiré' : 'En cours') }}
+  </span>
+
+  <button *ngIf="!isRetourne(e)"
+          class="btn-retour"
+          (click)="retourner(e.id)">
+    🔁 Retourner
+  </button>
+   <button class="btn-delete"
+          (click)="supprimer(e.id)">
+    Supprimer
+  </button>
+</div>
+</div>
+  </div>
+  
+
+
+
+<p *ngIf="emprunts.length === 0" class="empty">
+  Aucun emprunt enregistré
+</p>
+
